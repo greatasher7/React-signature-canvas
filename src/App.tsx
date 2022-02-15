@@ -1,10 +1,11 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import SignatureCanvas from 'react-signature-canvas'; // 라이브러리 import
 import './Styles/style.css';
 
 function App(): JSX.Element {
   // useRef로 DOM에 접근 (SignatureCanvas 라는 캔버스 태그에 접근)
   const signCanvas = useRef() as React.MutableRefObject<any>;
+  const [img, setImg] = useState('');
 
   // 캔버스 지우기
   const clear = () => {
@@ -18,7 +19,10 @@ function App(): JSX.Element {
     link.href = image;
     link.download = 'sign_image.png';
     link.click();
+    setImg(image);
   };
+
+  console.log(img);
 
   return (
     <>
@@ -27,12 +31,13 @@ function App(): JSX.Element {
           <SignatureCanvas // canvas element
             ref={signCanvas}
             canvasProps={{ className: 'sigCanvas canvasStyle' }}
-            backgroundColor="#00274C"
-            penColor="#FFCB05"
+            backgroundColor="#fff"
+            penColor="#000"
           />
         </div>
         <button onClick={clear}>clear</button>
         <button onClick={save}>save</button>
+        <img src={img} alt="dd" className="imgBox" />
       </div>
     </>
   );

@@ -1,6 +1,6 @@
 .container {
   width: 700px;
-  height: 500px;
+  height: 1000px;
   border: 3px solid #000;
   display: flex;
   flex-direction: column;
@@ -10,7 +10,8 @@
 
 .canvasContainer {
   width: 80%;
-  height: 70%;
+  height: 50%;
+  border: 1px solid #000;
 }
 
 .canvasStyle {
@@ -25,4 +26,9 @@ button {
   height: 30px;
   justify-content: center;
   align-items: center;
+}
+
+.imgBox {
+  width: 300px;
+  border: 1px solid #000;
 }
